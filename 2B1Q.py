@@ -69,6 +69,7 @@ def decode_2B1Q(data):
 
     # Estado inicial
     state = '00'
+    aaaas=0
 
     # Percorre os bits de 2 em 2
     for i in range(0, len(data), 2):
