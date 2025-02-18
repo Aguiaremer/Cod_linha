@@ -1,4 +1,3 @@
-
 # Função para aplicar o algoritmo 2B1Q
 def apply_2B1Q(data):
     # Estado inicial
@@ -48,6 +47,7 @@ def apply_2B1Q(data):
 
     return ''.join(signal)
 
+# Função para aplicar o algoritmo de codificação de linha inverso
 def decode_2B1Q(data):
     # Estado inicial
     previous_level = "+1"
