@@ -1,5 +1,5 @@
 import socket
-import matplotlib.pyplot as plt
+from graph import create_graph
 import tkinter as tk
 
 # Cria um objeto de socket
@@ -12,21 +12,7 @@ port = 12346  # A mesma porta usada pelo servidor
 # Conecta-se ao servidor
 client_socket.connect((host, port))
 
-# Função para criar o gráfico
-def create_graph(data):
-    tuple_data = tuple(data[i:i+2] for i in range(0, len(data), 2))  # Agrupa os dados em pares
-    x = list(range(len(tuple_data)))
 
-    # Configura posições dos elementos no eixo y
-    y_positions = {"-3": 0, "-1": 2, "+1": 4, "+3": 6}
-    y = [y_positions[str(value)] for value in tuple_data]
-
-    plt.step(x, y, where='post')
-    plt.yticks([0, 2, 4, 6], ['-3', '-1', '+1', '+3'])
-    plt.title('Sinal codificado')
-    plt.xlabel('Tempo')
-    plt.ylabel('Estado')
-    plt.show(block=False)
 
 # Função para aplicar o algoritmo de codificação de linha inverso
 def decode_2B1Q(data):
@@ -115,7 +101,7 @@ def caeser_decrypt(data, key, mode):
 # Função chamada ao receber os dados
 def process_data(data):
     # Cria o gráfico
-    create_graph(data)
+    create_graph(data,'sinal enviado')
 
     text_box.insert(tk.END, "Mensagem recebida: " + data + "\n\n")
 
